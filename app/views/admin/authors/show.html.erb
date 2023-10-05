@@ -1,0 +1,19 @@
+<div class="jumbotron">
+    <h1 class="display-4">
+        <%= @author.firstname %>
+        <%= @author.lastname %>
+    </h1>
+    <p class="lead">
+        <%= @author.date_of_birth %>  | 
+        <%= @author.about %>  |  
+        <%= @author.nationality %>
+    </p>
+    <br/>
+
+    <%= link_to 'Edit', edit_admin_author_path(@author), class:"btn btn-secondary" %>
+
+    <%= link_to 'Delete', @author, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    
+    <%= link_to 'Back', admin_author_path, class:"btn btn-dark" %>
+
+</div>
