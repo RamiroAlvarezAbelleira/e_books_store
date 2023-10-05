@@ -19,18 +19,35 @@ class Admin::AuthorsController < ApplicationController
     def create
         @author = Author.new(author_params)
         authorize @author
-
-        if @author.save
-            redirect_to admin_author_path(@author), notice: 'Successfully created a new author!'
-        else
-            render :new
+        respond_to do |format|
+            if @author.save
+                format.html { redirect_to admin_author_path(@author), notice: 'Successfully created a new author!' }
+                format.json { render :show, status: :created, location: @author }
+            else
+                format.html { render :new }
+                format.json { render_error }
+            end
         end
     end
 
     def update
+        respond_to do |format|
+            if @author.update(author_params)
+                format.html { redirect_to admin_author_path(@author), notice: 'Author updated successfully!' }
+                format.json { render :show, status: :ok, location: @author}
+            else
+                format.html { render :edit }
+                format.json { render_error }
+            end
+        end
     end
 
     def destroy
+        @author.destroy
+        respond_to do |format|
+            format.html { redirect_to admin_authors_url }
+            format.json { head :no_content}
+        end
     end
 
     private
@@ -45,5 +62,6 @@ class Admin::AuthorsController < ApplicationController
     end
 
     def render_error
+        render json: @author.errors, status: :unprocessable_entity
     end
 end

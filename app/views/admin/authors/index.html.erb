@@ -5,6 +5,8 @@
         <th>Date of birth</th>
         <th>Nationality</th>
         <th> </th>
+        <th> </th>
+        <th> </th>
       </tr>
     </thead>
 
@@ -16,8 +18,10 @@
           </td>
           <td><%= author.date_of_birth %></td>
           <td><%= author.nationality %></td>
-          
-          <td><%= link_to 'Delete', author, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+
+          <td><%= link_to 'Show', admin_author_path(author), class:"btn btn-secondary" %></td>
+          <td><%= link_to 'Edit', edit_admin_author_path(author), class:"btn btn-secondary" %></td>
+          <td><%= link_to 'Delete', admin_author_path(author), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm" %></td>
           
         </tr>
         <% end %>
