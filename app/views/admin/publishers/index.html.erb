@@ -1,0 +1,29 @@
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th> </th>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @publishers.each do |publisher| %>
+        <tr>
+          <td>
+            <%= publisher.name %>
+          </td>
+
+          <td><%= link_to 'Show', admin_publisher_path(publisher), class:"btn btn-secondary" %></td>
+          <td><%= link_to 'Edit', edit_admin_publisher_path(publisher), class:"btn btn-secondary" %></td>
+          <td><%= link_to 'Delete', admin_publisher_path(publisher), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm" %></td>
+          
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Add publisher', new_admin_publisher_path, class:"btn btn-secondary" %>

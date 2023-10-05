@@ -1,0 +1,28 @@
+<% if publisher.new_record? %>
+  <% form_url = admin_publishers_path %>
+<% else %>
+  <% form_url = admin_publisher_path(publisher) %>
+<% end %>
+
+<%= form_with(model: publisher, url: form_url, turbo_method: publisher.new_record? ? :post : :patch, local: true) do |form| %>
+  <% if publisher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(publishers.errors.count, "error") %> somethng went wrong!</h2>
+
+      <ul>
+        <% publisher.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+      <% form.label :name %>
+      <%= form.text_field :name, class:"form-control", placeholder:"Name" %>
+  </div>
+<br/>
+  <div class="actions">
+    <%= form.submit class:'btn btn-secondary' %>
+  </div>
+<% end %>
