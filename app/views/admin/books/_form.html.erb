@@ -1,0 +1,49 @@
+<% if book.new_record? %>
+  <% form_url = admin_books_path %>
+<% else %>
+  <% form_url = admin_book_path(book) %>
+<% end %>
+
+<%= form_with(model: book, url: form_url, turbo_method: book.new_record? ? :post : :patch, local: true) do |form| %>
+  <%= render 'error_messages', book: book %>
+
+  <div class="field form-group">
+    <%= form.label :title, 'Title' %>
+    <%= form.text_field :title, class:"form-control", placeholder:"Title" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :author_id, 'Author' %>
+    <%= form.collection_select :author_id, Author.all, :id, :firstname, {}, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :date_of_publication, 'Date of publication' %>
+    <%= form.date_field :date_of_publication, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :isbn, 'ISBN-10' %>
+    <%= form.text_field :isbn, class:"form-control", placeholder:"ISBN-10" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :publisher_id, 'Publisher' %>
+    <%= form.collection_select :publisher_id, Publisher.all, :id, :name, {}, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :review, "Review" %>
+    <%= form.text_area :review, class: "form-control", placeholder: "Review" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :price, 'Price' %>
+    <%= form.number_field :price, class: "form-control", placeholder: "Price" %>
+  </div>
+
+  <br/>
+  <div class="actions">
+    <%= form.submit class:'btn btn-secondary' %>
+  </div>
+<% end %>
