@@ -24,6 +24,7 @@ class Admin::AuthorsController < ApplicationController
                 format.html { redirect_to admin_author_path(@author), notice: 'Successfully created a new author!' }
                 format.json { render :show, status: :created, location: @author }
             else
+                format.turbo_stream { render turbo_stream: turbo_stream.replace('error_messages', partial: "admin/authors/error_messages", locals: { author: @author }) }
                 format.html { render :new }
                 format.json { render_error }
             end
@@ -36,6 +37,7 @@ class Admin::AuthorsController < ApplicationController
                 format.html { redirect_to admin_author_path(@author), notice: 'Author updated successfully!' }
                 format.json { render :show, status: :ok, location: @author}
             else
+                format.turbo_stream { render turbo_stream: turbo_stream.replace('error_messages', partial: "admin/authors/error_messages", locals: { author: @author }) }
                 format.html { render :edit }
                 format.json { render_error }
             end

@@ -21,11 +21,12 @@ class Admin::PublishersController < ApplicationController
           authorize @publisher
           respond_to do |format|
               if @publisher.save
-                  format.html { redirect_to admin_publisher_path(@publisher), notice: 'Successfully created a new publisher!' }
-                  format.json { render :show, status: :created, location: @publisher }
+                format.html { redirect_to admin_publisher_path(@publisher), notice: 'Successfully created a new publisher!' }
+                format.json { render :show, status: :created, location: @publisher }
               else
-                  format.html { render :new }
-                  format.json { render_error }
+                format.turbo_stream { render turbo_stream: turbo_stream.replace('error_messages', partial: "admin/publishers/error_messages", locals: { publisher: @publisher }) }
+                format.html { render :new }
+                format.json { render_error }
               end
           end
       end
@@ -33,11 +34,12 @@ class Admin::PublishersController < ApplicationController
       def update
           respond_to do |format|
               if @publisher.update(publisher_params)
-                  format.html { redirect_to admin_publisher_path(@publisher), notice: 'Publisher updated successfully!' }
-                  format.json { render :show, status: :ok, location: @publisher}
+                format.html { redirect_to admin_publisher_path(@publisher), notice: 'Publisher updated successfully!' }
+                format.json { render :show, status: :ok, location: @publisher}
               else
-                  format.html { render :edit }
-                  format.json { render_error }
+                format.turbo_stream { render turbo_stream: turbo_stream.replace('error_messages', partial: "admin/publishers/error_messages", locals: { publisher: @publisher }) }
+                format.html { render :edit }
+                format.json { render_error }
               end
           end
       end

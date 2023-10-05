@@ -5,17 +5,7 @@
 <% end %>
 
 <%= form_with(model: publisher, url: form_url, turbo_method: publisher.new_record? ? :post : :patch, local: true) do |form| %>
-  <% if publisher.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(publishers.errors.count, "error") %> somethng went wrong!</h2>
-
-      <ul>
-        <% publisher.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'error_messages', publisher: publisher %>
 
   <div class="field form-group">
       <% form.label :name %>

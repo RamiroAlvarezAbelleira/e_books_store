@@ -1,0 +1,13 @@
+<%= turbo_frame_tag 'error_messages' do %>
+    <% if publisher.errors.any? %>
+        <div id="error_explanation">
+        <h2><%= pluralize(publisher.errors.count, "error") %> something went wrong!</h2>
+
+        <ul>
+            <% publisher.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+<% end %>
