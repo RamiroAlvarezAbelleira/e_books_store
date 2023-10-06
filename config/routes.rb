@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-    registrations: 'auth/registrations',
-    sessions: 'auth/sessions',
+  devise_for :users, controllers: {
+    sessions: 'custom_sessions',
+    registrations: 'custom_registrations'
   }
 
-  as :user do
-    # Define routes for User within this block.
-  end
   root "home#index"
 
   namespace :admin do

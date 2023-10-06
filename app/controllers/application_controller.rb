@@ -1,8 +1,5 @@
 class ApplicationController < ActionController::Base
-        include Pundit
-        include DeviseTokenAuth::Concerns::SetUserByToken
-        # protect_from_forgery with: :null_session
-        # include Pundit::Authorization
+        include Pundit::Authorization
       
         after_action :verify_authorized, except: :index
         after_action :verify_policy_scoped, only: :index

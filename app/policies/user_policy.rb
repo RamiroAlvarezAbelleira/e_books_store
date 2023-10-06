@@ -5,6 +5,10 @@ class UserPolicy < ApplicationPolicy
             scope.all
         end
 
+        def new
+            true
+        end
+
         def index
             true
         end
