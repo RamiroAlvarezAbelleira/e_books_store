@@ -36,6 +36,10 @@ class ApplicationPolicy
     true
   end
 
+  def age
+    true
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user

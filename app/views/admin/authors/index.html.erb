@@ -2,8 +2,7 @@
     <thead class="thead-dark">
       <tr>
         <th>Name</th>
-        <th>Date of birth</th>
-        <th>Nationality</th>
+        <th>Books count</th>
         <th> </th>
         <th> </th>
         <th> </th>
@@ -16,8 +15,7 @@
           <td>
             <%= author.firstname + ' ' + author.lastname %>
           </td>
-          <td><%= author.date_of_birth %></td>
-          <td><%= author.nationality %></td>
+          <td><%= author.book_count %></td>
 
           <td><%= link_to 'Show', admin_author_path(author), class:"btn btn-secondary" %></td>
           <td><%= link_to 'Edit', edit_admin_author_path(author), class:"btn btn-secondary" %></td>

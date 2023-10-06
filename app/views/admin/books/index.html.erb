@@ -16,7 +16,7 @@
       <% @books.each do |book| %>
         <tr>
           <td><%= book.title %></td>
-          <td><%= book.author.firstname + ' ' + book.author.lastname %></td>
+          <td><%= "#{book.author.firstname} #{book.author.lastname} (Age: #{book.author.age})" %></td>
           <td><%= book.publisher.name %></td>
           <td><%= book.isbn %></td>
           <td><%= book.price %></td>

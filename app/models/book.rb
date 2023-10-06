@@ -2,6 +2,8 @@ class Book < ApplicationRecord
   belongs_to :author
   belongs_to :publisher
 
+  validates_uniqueness_of :isbn, message: 'must be unique'
+
   validate :isbn_10_format_and_checksum
 
   private
