@@ -2,7 +2,7 @@ class Admin::BooksController < ApplicationController
     before_action :set_book, only: %i[show edit update destroy]
   
       def index
-          @books = policy_scope(Book)
+          @books = policy_scope(Book).paginate(page: params[:page], per_page: 5)
       end
   
       def show

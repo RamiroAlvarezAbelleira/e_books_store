@@ -29,6 +29,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "pundit"
 gem 'rack-cors'
+gem 'will_paginate', '~> 3.1'
+gem 'bootstrap'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

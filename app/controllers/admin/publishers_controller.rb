@@ -2,7 +2,7 @@ class Admin::PublishersController < ApplicationController
     before_action :set_publisher, only: %i[show edit update destroy]
   
       def index
-          @publishers = policy_scope(Publisher)
+          @publishers = policy_scope(Publisher).paginate(page: params[:page], per_page: 5)
       end
   
       def show
