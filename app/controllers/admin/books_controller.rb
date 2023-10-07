@@ -2,7 +2,8 @@ class Admin::BooksController < ApplicationController
     before_action :set_book, only: %i[show edit update destroy]
   
       def index
-          @books = policy_scope(Book).paginate(page: params[:page], per_page: 5)
+        @q = policy_scope(Book).ransack(params[:q])
+        @books = @q.result.paginate(page: params[:page], per_page: 5)
       end
   
       def show

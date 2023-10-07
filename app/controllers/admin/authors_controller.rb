@@ -2,7 +2,6 @@ class Admin::AuthorsController < ApplicationController
   before_action :set_author, only: %i[show edit update destroy]
 
     def index
-        @authors = policy_scope(Author).paginate(page: params[:page], per_page: 5)
         @q = policy_scope(Author).ransack(params[:q])
         @authors = @q.result.paginate(page: params[:page], per_page: 5)
     end

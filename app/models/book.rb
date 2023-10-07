@@ -6,6 +6,10 @@ class Book < ApplicationRecord
 
   validate :isbn_10_format_and_checksum
 
+  def self.ransackable_attributes(auth_object = nil)
+    %w[title date_of_publication] # List the attributes you want to allow for searching
+  end
+
   private
 
   def isbn_10_format_and_checksum
