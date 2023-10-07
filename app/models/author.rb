@@ -16,6 +16,10 @@ class Author < ApplicationRecord
         age
     end
 
+    def self.ransackable_attributes(auth_object = nil)
+        %w[firstname lastname nationality] # List the attributes you want to allow for searching
+    end
+
     def book_count
         books.count
     end

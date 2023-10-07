@@ -3,6 +3,8 @@ class Admin::AuthorsController < ApplicationController
 
     def index
         @authors = policy_scope(Author).paginate(page: params[:page], per_page: 5)
+        @q = policy_scope(Author).ransack(params[:q])
+        @authors = @q.result.paginate(page: params[:page], per_page: 5)
     end
 
     def show
