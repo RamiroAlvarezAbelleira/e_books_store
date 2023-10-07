@@ -1,5 +1,6 @@
 class Admin::AuthorsController < ApplicationController
-  before_action :set_author, only: %i[show edit update destroy]
+    before_action :check_admin
+    before_action :set_author, only: %i[show edit update destroy]
 
     def index
         @q = policy_scope(Author).ransack(params[:q])
@@ -54,6 +55,10 @@ class Admin::AuthorsController < ApplicationController
     end
 
     private
+
+    def check_admin
+        redirect_to root_path, alert: 'You are not authorized to access this page.' unless current_user && current_user.admin?
+    end
 
     def set_author
         @author = Author.find(params[:id])

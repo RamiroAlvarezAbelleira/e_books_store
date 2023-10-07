@@ -8,32 +8,32 @@
 
   <%= render 'error_messages', author: author %>
 
-  <div class="field form-group">
-      <% form.label :firstname %>
+  <div class="field form-group my-3">
+      <%= form.label :firstname, 'First name', class:"pb-2" %>
       <%= form.text_field :firstname, class:"form-control", placeholder:"First Name" %>
   </div>
 
-  <div class="field form-group">
-      <% form.label :lastname %>
+  <div class="field form-group my-3">
+      <%= form.label :lastname, 'Last name', class:"pb-2" %>
       <%= form.text_field :lastname, class:"form-control", placeholder:"Last Name" %>
   </div>
 
-  <div class="field form-group">
-      <% form.label :date_of_birth %>
+  <div class="field form-group my-3">
+      <%= form.label :date_of_birth, 'Date of birth', class:"pb-2" %>
       <%= form.date_field :date_of_birth, class:"form-control" %>
   </div>
 
-  <div class="field form-group">
-      <% form.label :about %>
+  <div class="field form-group my-3">
+      <%= form.label :about, 'About', class:"pb-2" %>
       <%= form.text_field :about, class:"form-control", placeholder:"author's description..." %>
   </div>
 
-  <div class="field form-group">
-      <% form.label :nationality %>
+  <div class="field form-group my-3">
+      <%= form.label :nationality, 'Nationality', class:"pb-2" %>
       <%= form.text_field :nationality, class:"form-control", placeholder:"Argentina" %>
   </div>
 <br/>
-  <div class="actions">
-    <%= form.submit class:'btn btn-secondary' %>
+  <div class="actions my-3">
+    <%= form.submit class:'btn btn-outline-primary' %>
   </div>
 <% end %>

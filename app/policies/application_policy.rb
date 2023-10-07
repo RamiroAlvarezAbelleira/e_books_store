@@ -40,6 +40,10 @@ class ApplicationPolicy
     true
   end
 
+  def admin?
+    current_user.admin?
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user

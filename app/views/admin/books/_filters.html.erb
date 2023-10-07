@@ -11,7 +11,7 @@
                 </div>
             <% end %>
         </div>
-        <div class="col d-flex justify-content-end align-items-center">
+        <div class="col d-flex justify-content-end align-items-end">
             <%= search_form_for q, class:"form", url: :admin_books do |f| %>
                 <div class="form-group">
                 <%= sort_link(q, :date_of_publication, default_order: :desc, class:"text-decoration-none text-dark") do %>

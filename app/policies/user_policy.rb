@@ -5,6 +5,10 @@ class UserPolicy < ApplicationPolicy
             scope.all
         end
 
+        def admin?
+            current_user.admin?
+        end
+
         def new
             true
         end
