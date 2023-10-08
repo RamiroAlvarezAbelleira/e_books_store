@@ -1,6 +1,20 @@
 class Book < ApplicationRecord
+  include PgSearch::Model
   belongs_to :author
   belongs_to :publisher
+
+  pg_search_scope :search,
+    against: {
+      title: 'A',
+      isbn: 'B'
+    },
+    associated_against: {
+      author: [:firstname, :lastname],
+      publisher: [:name]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 
   validates_uniqueness_of :isbn, message: 'must be unique'
 

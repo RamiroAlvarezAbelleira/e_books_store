@@ -33,6 +33,7 @@ gem 'will_paginate', '~> 3.1'
 gem 'bootstrap'
 gem 'ransack'
 gem "font-awesome-sass", "~> 6.4.2"
+gem 'pg_search'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
