@@ -1,0 +1,18 @@
+<% if publisher.new_record? %>
+  <% form_url = admin_publishers_path %>
+<% else %>
+  <% form_url = admin_publisher_path(publisher) %>
+<% end %>
+
+<%= form_with(model: publisher, url: form_url, turbo_method: publisher.new_record? ? :post : :patch, local: true) do |form| %>
+  <%= render 'error_messages', publisher: publisher %>
+
+  <div class="field form-group my-3">
+      <% form.label :name, 'Name', class:"pb-2" %>
+      <%= form.text_field :name, class:"form-control", placeholder:"Name" %>
+  </div>
+<br/>
+  <div class="actions my-3">
+    <%= form.submit class:'btn btn-outline-primary' %>
+  </div>
+<% end %>

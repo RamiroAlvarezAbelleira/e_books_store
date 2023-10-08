@@ -1,0 +1,27 @@
+<%= link_to 'Back', root_path, class:"btn btn-outline-dark rounded-pill my-5" %>
+<div class="page-min-height">
+    <div class="row my-4">
+        <div class="col-md-10">
+            <div>
+                <h3 class="text-font title-fs text-capitalize border-primary rounded-bottom border-bottom border-2 w-fit-content"><%= @book.title %><span class="text-primary title-fs">.</span></h3>
+                <p class="opacity-50 text-font1 fs-3">Writen by <%= @book.author.full_name %></p>
+                <p class="opacity-50 text-font1 fs-3">Published by <%= @book.publisher.name %> on <%= @book.date_of_publication %></p>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div>
+                <p class="text-font1 fs-1 my-3 border-primary rounded-bottom border-bottom border-2 w-fit-content px-2">$<%= @book.price %></p>
+            </div>
+            <div>
+                <h5>ISBN:</h5>
+                <p class="opacity-75 text-font1 fs-4"><%= @book.isbn %></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <h4 class="text-font1 fs-1 mt-5">Review</h4>
+        <p class="opacity-50 text-font1 fs-5 px-3 mt-4 white-space-pre border-2 border-start"><%= @book.review %></p>
+    </div>
+</div>
+
+

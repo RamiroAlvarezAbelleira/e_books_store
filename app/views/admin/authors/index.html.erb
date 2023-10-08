@@ -1,0 +1,38 @@
+<h3 class="my-5">Authors list</h3>
+
+<%= render 'filters', q: @q %>
+<table class="table table-striped table-bordered table-hover align-middle">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th>Books count</th>
+        <th> </th>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @authors.each do |author| %>
+        <tr>
+          <td>
+            <%= author.firstname + ' ' + author.lastname %>
+          </td>
+          <td><%= author.book_count %></td>
+
+          <td><div class="d-flex justify-content-center"><%= link_to 'Show', admin_author_path(author), class:"btn btn-outline-primary btn-sm" %></div></td>
+          <td><div class="d-flex justify-content-center"><%= link_to 'Edit', edit_admin_author_path(author), class:"btn btn-outline-primary btn-sm" %></div></td>
+          <td><div class="d-flex justify-content-center"><%= link_to 'Delete', admin_author_path(author), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm" %></div></td>
+          
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  
+  <ul class="pagination justify-content-center">
+    <%= will_paginate @authors, renderer: BootstrapWillPaginateRenderer %>
+  </ul>
+
+  <%= link_to 'Add author', new_admin_author_path, class:"btn btn-outline-primary mb-5" %>

@@ -1,0 +1,23 @@
+
+<section class="row mb-5">
+        <div class="col ">
+            <%= search_form_for q, class:"form row align-items-end", url: :admin_publishers do |f| %>
+                <div class="form-group col">
+                    <%= f.label :name, 'Search by name'%>
+                    <%= f.text_field :name_cont, class:"form-control", placeholder:"Name..."%>
+                </div>
+                <div class="actions col">
+                    <%= f.submit class:'btn btn-outline-primary'%>
+                </div>
+            <% end %>
+        </div>
+        <div class="col d-flex justify-content-end align-items-end">
+            <%= search_form_for q, class:"form", url: :admin_publishers do |f| %>
+                <div class="form-group">
+                <%= sort_link(q, :name, default_order: :desc, class:"text-decoration-none text-dark") do %>
+                    <strong class="text-decoration-none">Order by name</strong>
+                <% end %>
+                </div>
+            <% end %>
+        </div>
+</section>

@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "font-awesome";
+
+
+.title-font {
+    font-family: 'Pacifico', sans-serif;
+}
+
+.title-fs {
+    font-size: 8vw;
+}
+
+.m-title {
+    margin: 5rem 0;
+}
+
+.text-font {
+    font-family: 'Roboto', sans-serif;
+}
+
+.text-font1 {
+    font-family: 'Concert One', sans-serif;
+}
+
+.page-min-height {
+    min-height: 75vh;
+}
+
+.w-fit-content {
+    width: fit-content;
+}
+ 
+.white-space-pre {
+    white-space: pre-wrap;
+}
+
+.login-container {
+    box-shadow: none;
+}
+
+.socials {
+    opacity: .6;
+    transition: all .3s;
+}
+
+.socials:hover {
+    opacity: 1;
+    color: #0d6efd;
+}
+
+@media (min-width: 768px) {
+    .title-fs {
+        font-size: 5rem;
+    }
+
+    .m-title {
+        margin: 8rem 0;
+    }
+
+    .login-container {
+        min-width: 400px;
+        max-width: 400px;
+        box-shadow: var(--bs-box-shadow);
+    }
+}
