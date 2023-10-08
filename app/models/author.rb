@@ -16,6 +16,11 @@ class Author < ApplicationRecord
         age
     end
 
+    def full_name
+        full_name = "#{firstname} #{lastname}"
+        full_name
+    end
+
     def self.ransackable_attributes(auth_object = nil)
         %w[firstname date_of_birth] # List the attributes you want to allow for searching
     end

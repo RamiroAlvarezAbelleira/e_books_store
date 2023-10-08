@@ -15,3 +15,45 @@
  */
  @import "font-awesome";
 
+
+.title-font {
+    font-family: 'Pacifico', sans-serif;
+}
+
+.title-fs {
+    font-size: 8vw;
+}
+
+.m-title {
+    margin: 5rem 0;
+}
+
+.text-font {
+    font-family: 'Roboto', sans-serif;
+}
+
+.text-font1 {
+    font-family: 'Concert One', sans-serif;
+}
+
+.page-min-height {
+    min-height: 75vh;
+}
+
+.w-fit-content {
+    width: fit-content;
+}
+ 
+.white-space-pre {
+    white-space: pre-wrap;
+}
+
+@media (min-width: 768px) {
+    .title-fs {
+        font-size: 5rem;
+    }
+
+    .m-title {
+        margin: 8rem 0;
+    }
+}

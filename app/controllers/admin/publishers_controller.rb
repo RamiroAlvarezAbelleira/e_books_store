@@ -11,8 +11,8 @@ class Admin::PublishersController < ApplicationController
   end
 
   def new
-      @publisher = Publisher.new
-      authorize @publisher
+    @publisher = Publisher.new
+    authorize @publisher
   end
 
   def edit

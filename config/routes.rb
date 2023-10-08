@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     registrations: 'custom_registrations'
   }
 
-  root "home#index"
+  root "books#index"
 
   namespace :admin do
     resources :authors, only: %i[index show new edit create update destroy]
@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     resources :books, only: %i[index show new edit create update destroy]
   end
 
-  resources :authors, only: [:index, :show]
-  resources :publishers, only: [:index, :show]
+  resources :books, only: [ :show]
 
 end
