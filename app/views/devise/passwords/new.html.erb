@@ -1,16 +1,22 @@
-<h2>Forgot your password?</h2>
+<div class="page-min-height d-flex justify-content-center align-items-center">
+  <div class="login-container p-5 rounded-2">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <h2 class="title-font fs-1 mx-auto w-fit-content mt-3 mb-5">eBooks<span class="text-primary">Store.</span></h2>
+    <p class="opacity-50 text-font1 text-center">You'll recieve an email with reset password instructions</p>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, class:"form") do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="form-group my-3">
+        <%= f.label :email, class:"text-font1 mb-2" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <%= f.submit "Send", class:'btn btn-outline-primary rounded-pill text-font1 w-50 my-3' %>
+      </div>
+    <% end %>
+
+    <p class="text-font1 mt-3">Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name) %></p>
+    <p class="text-font1 mt-3"><%= link_to "Log in", new_session_path(resource_name) %></p>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
