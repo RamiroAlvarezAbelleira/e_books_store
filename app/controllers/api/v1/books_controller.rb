@@ -2,9 +2,14 @@ class Api::V1::BooksController < Api::V1::BaseController
   before_action :set_book, only: %i[show update destroy]
 
   def index
-    @books = policy_scope(Book)
-      # @q = policy_scope(Book).ransack(params[:q])
-      # @books = @q.result.paginate(page: params[:page], per_page: 5)
+    @books = policy_scope(Book).paginate(page: params[:page], per_page: params[:per_page])
+    if params[:title].present?
+      @books = @books.where('title LIKE ?', "%#{params[:title]}%")
+    elsif params[:min_price].present? && params[:max_price].present?
+      @books = @books.where(price: params[:min_price]..params[:max_price])
+    elsif params[:author_id].present?
+      @books = @books.where(author_id: params[:author_id])
+    end
   end
 
   def show
