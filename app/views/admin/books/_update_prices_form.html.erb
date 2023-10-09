@@ -1,0 +1,20 @@
+<h5>Update book prices</h5>
+<%= form_tag(update_prices_admin_books_path, method: :put, class: 'form my-3') do %>
+  <div class="d-flex align-items-end">
+    <div class="form-group me-3">
+      <%= label_tag 'publisher_id', 'Select Publisher' %>
+      <%= select_tag 'publisher_id', options_from_collection_for_select(Publisher.all, :id, :name), class: "form-control"  %>
+    </div>
+    <div class="form-group me-3">
+      <%= label_tag 'type_of_update', 'Type of Update' %>
+      <%= select_tag 'type_of_update', options_for_select(['increase', 'decrease']), include_blank: 'Select Type', class: "form-control" %>
+    </div>
+    <div class="form-group me-3">
+      <%= label_tag 'percentage', 'Percentage' %>
+      <%= text_field_tag 'percentage', nil, class: 'form-control', placeholder: 'Enter Percentage', class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= submit_tag 'Update Prices', class: 'btn btn-outline-primary' %>
+    </div>
+  </div>
+<% end %>
