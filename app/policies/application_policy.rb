@@ -44,6 +44,10 @@ class ApplicationPolicy
     current_user.admin?
   end
 
+  def update_prices?
+    true
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user

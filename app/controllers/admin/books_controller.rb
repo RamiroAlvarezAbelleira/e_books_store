@@ -5,6 +5,10 @@ class Admin::BooksController < ApplicationController
     def index
         @q = policy_scope(Book).ransack(params[:q])
         @books = @q.result.paginate(page: params[:page], per_page: 5)
+        if PriceUpdateStatus.instance.price_update_completed?
+            flash.now[:notice] = 'Book prices have been updated.'
+            PriceUpdateStatus.instance.update(price_update_completed: false)
+        end
     end
 
     def show
@@ -48,6 +52,20 @@ class Admin::BooksController < ApplicationController
             format.html { render :edit }
             format.json { render_error }
             end
+        end
+    end
+
+    def update_prices
+        authorize Book
+        publisher = Publisher.find(params[:publisher_id])
+        type_of_update = params[:type_of_update]
+        percentage = params[:percentage].to_f
+
+        UpdateBookPricesJob.perform_async(publisher.id, type_of_update, percentage)
+
+        # Provide feedback to the user
+        respond_to do |format|
+          format.html { redirect_to admin_books_path, notice: 'Price update has been initiated.' }
         end
     end
 

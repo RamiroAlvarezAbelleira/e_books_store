@@ -13,6 +13,10 @@ class BookPolicy < ApplicationPolicy
             true
         end
 
+        def update_prices?
+            true
+        end
+
         def update
             true
         end
