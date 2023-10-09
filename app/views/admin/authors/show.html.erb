@@ -1,23 +1,25 @@
-<h3 class="my-5">Author show</h3>
-<div class="jumbotron">
-    <h1 class="display-4">
-        <%= @author.firstname %>
-        <%= @author.lastname %>
-    </h1>
-    <p class="lead">
-        Born in: <%= @author.date_of_birth %>  |   
-        Nationality: <%= @author.nationality %>
-    </p>
+<div class="page-min-height d-flex flex-column align-items-start justify-content-center">
+    <h3 class="my-5">Author show</h3>
+    <div class="jumbotron">
+        <h1 class="display-4">
+            <%= @author.firstname %>
+            <%= @author.lastname %>
+        </h1>
+        <p class="lead">
+            Born in: <%= @author.date_of_birth %>  |   
+            Nationality: <%= @author.nationality %>
+        </p>
 
-    <h5 class="mt-5">About:</h5>
-    <p class="fs-5"><%= @author.about %></p>
-    <br/>
-</div>
+        <h5 class="mt-5">About:</h5>
+        <p class="fs-5"><%= @author.about %></p>
+        <br/>
+    </div>
 
-<div class="d-flex flex-row my-5">
-    <%= link_to 'Edit', edit_admin_author_path(@author), class:"btn btn-outline-primary mr-3" %>
+    <div class="d-flex flex-row my-5">
+        <%= link_to 'Edit', edit_admin_author_path(@author), class:"btn btn-outline-primary mr-3" %>
 
-    <%= link_to 'Delete', admin_author_path(@author), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger mx-3" %>
-    
-    <%= link_to 'Back', admin_authors_path, class:"btn btn-outline-dark ml-3" %>
+        <%= link_to 'Delete', admin_author_path(@author), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger mx-3" %>
+        
+        <%= link_to 'Back', admin_authors_path, class:"btn btn-outline-dark ml-3" %>
+    </div>
 </div>
