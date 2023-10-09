@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'custom_sessions',
-    registrations: 'custom_registrations'
+    registrations: 'custom_registrations',
+    passwords: 'custom_passwords'
   }
 
   root "books#index"
