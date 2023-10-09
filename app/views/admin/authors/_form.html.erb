@@ -4,7 +4,7 @@
   <% form_url = admin_author_path(author) %>
 <% end %>
 
-<%= form_with(model: author, url: form_url, turbo_method: author.new_record? ? :post : :patch, local: true) do |form| %>
+<%= form_with(model: author, url: form_url, turbo_method: author.new_record? ? :post : :patch, local: true, class:"w-100") do |form| %>
 
   <%= render 'error_messages', author: author %>
 

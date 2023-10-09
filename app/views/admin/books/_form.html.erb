@@ -4,7 +4,7 @@
   <% form_url = admin_book_path(book) %>
 <% end %>
 
-<%= form_with(model: book, url: form_url, turbo_method: book.new_record? ? :post : :patch, local: true) do |form| %>
+<%= form_with(model: book, url: form_url, turbo_method: book.new_record? ? :post : :patch, local: true, class:"w-100") do |form| %>
   <%= render 'error_messages', book: book %>
 
   <div class="field form-group my-3">

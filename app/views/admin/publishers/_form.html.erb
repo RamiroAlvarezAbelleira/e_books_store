@@ -4,7 +4,7 @@
   <% form_url = admin_publisher_path(publisher) %>
 <% end %>
 
-<%= form_with(model: publisher, url: form_url, turbo_method: publisher.new_record? ? :post : :patch, local: true) do |form| %>
+<%= form_with(model: publisher, url: form_url, turbo_method: publisher.new_record? ? :post : :patch, local: true, class:"w-100") do |form| %>
   <%= render 'error_messages', publisher: publisher %>
 
   <div class="field form-group my-3">

@@ -1,8 +1,9 @@
-<h3 class="my-5">Publishers list</h3>
+<div class="page-min-height d-flex flex-column align-items-start justify-content-center">
+  <h3 class="my-5">Publishers list</h3>
 
-<%= render 'filters', q: @q %>
+  <%= render 'filters', q: @q %>
 
-<table class="table table-striped table-bordered table-hover">
+  <table class="table table-striped table-bordered table-hover">
     <thead class="thead-dark">
       <tr>
         <th>Name</th>
@@ -34,8 +35,9 @@
 
   <br>
   
-  <ul class="pagination justify-content-center">
+  <ul class="pagination justify-content-center w-100">
     <%= will_paginate @authors, renderer: BootstrapWillPaginateRenderer %>
   </ul>
   
   <%= link_to 'Add publisher', new_admin_publisher_path, class:"btn btn-outline-primary mb-5" %>
+</div>
