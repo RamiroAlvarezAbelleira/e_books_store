@@ -16,6 +16,10 @@ class Book < ApplicationRecord
       tsearch: { prefix: true }
     }
 
+  validates :title, presence: true
+  validates :price, presence: true
+  validates :date_of_publication, presence: true
+
   validates_uniqueness_of :isbn, message: 'must be unique'
 
   validate :isbn_10_format_and_checksum
