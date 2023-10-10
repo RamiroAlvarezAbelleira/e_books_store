@@ -4,7 +4,7 @@ eBookStore is a sample e-commerce platform designed for selling books. This appl
 
 ## Prerequisites
 
-Make sure you have the following software installed on your local machine:
+Before setting up eBookStore, ensure you have the following software installed on your local machine:
 
 - Ruby (version 3.1.2)
 - Rails (version 7.0.8)
@@ -13,6 +13,8 @@ Make sure you have the following software installed on your local machine:
 - Node.js (version 16.15.1)
 
 ## Installation
+
+To get started with eBookStore, follow these steps:
 
 1. Clone this repository to your local machine:
 
@@ -39,10 +41,13 @@ Make sure you have the following software installed on your local machine:
 
    Seed admin (admin@mail.com, password: 12345678)
 
-7. ```bash
+7. Start the Rails server:
+   ```bash
    rails s
 
-8. Run this command on a new tab to use sidekiq (make shure to have redis installed (version 7.2.1))
+9. Run this command on a new terminal tab to use Sidekiq. Ensure you have Redis (version 7.2.1) installed:
+   ```bash
+   bundle exec sidekiq
 
 # Features
 
