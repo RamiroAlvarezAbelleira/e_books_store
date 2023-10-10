@@ -33,7 +33,7 @@
   }
 
 ## Update Book
-- **Endpoint:** `PuT /api/v1/books/:id`
+- **Endpoint:** `PUT /api/v1/books/:id`
 - **Request Body Format:**
   ```json
   {
