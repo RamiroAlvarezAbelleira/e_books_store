@@ -33,13 +33,11 @@ To get started with eBookStore, follow these steps:
 
 5. Uncomment this line (config.secret_key_base = ENV['SECRET_KEY_BASE']) on application.rb
 
-6. Set up the database
+6. Set up the database (Seed admin (admin@mail.com, password: 12345678))
    ```bash
    rails db:create
    rails db:migrate
    rails db:seed
-
-   Seed admin (admin@mail.com, password: 12345678)
 
 7. Start the Rails server:
    ```bash
