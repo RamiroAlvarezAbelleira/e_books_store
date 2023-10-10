@@ -226,6 +226,7 @@ GEM
       railties (>= 5.2)
     rexml (3.2.6)
     ruby2_keywords (0.0.5)
+    ruby_http_client (3.5.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -239,6 +240,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sendgrid-ruby (6.6.2)
+      ruby_http_client (~> 3.4)
     sidekiq (7.1.5)
       concurrent-ruby (< 2)
       connection_pool (>= 2.3.0)
@@ -319,6 +322,7 @@ DEPENDENCIES
   rails (~> 7.0.7, >= 7.0.7.2)
   ransack
   selenium-webdriver
+  sendgrid-ruby
   sidekiq
   sprockets-rails
   stimulus-rails
