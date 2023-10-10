@@ -29,7 +29,7 @@ To get started with eBookStore, follow these steps:
    ```bash
    bundle install
 
-4. create .env file based on .env.sample
+4. create .env file based on .env.sample (you will find some instructions there)
 
 5. Uncomment this line (config.secret_key_base = ENV['SECRET_KEY_BASE']) on application.rb
 
