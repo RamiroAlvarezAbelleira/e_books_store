@@ -1,1 +1,7 @@
-:concurrency: 50
+:concurrency: 100
+:timeout: 900
+:queues:
+  - critical
+  - default
+  - low
+:logfile: ./log/sidekiq.log
