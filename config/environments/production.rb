@@ -74,7 +74,7 @@ Rails.application.configure do
     authentication: :plain,
     enable_starttls_auto: true
   }
-  config.action_mailer.default_url_options = { host: 'ebooksstore-production.up.railway.app' }
+  config.action_mailer.default_url_options = { host: 'ebooksstore-production.up.railway.app', protocol: 'https' }
 
 
 
