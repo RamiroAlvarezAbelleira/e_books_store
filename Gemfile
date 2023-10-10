@@ -36,6 +36,8 @@ gem "font-awesome-sass", "~> 6.4.2"
 gem 'pg_search'
 gem 'mailcatcher'
 gem 'sidekiq'
+gem 'sendgrid-ruby'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
