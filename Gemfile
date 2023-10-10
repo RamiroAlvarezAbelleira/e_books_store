@@ -38,6 +38,10 @@ gem 'mailcatcher'
 gem 'sidekiq'
 gem 'sendgrid-ruby'
 
+group :production do
+  gem 'redis'
+end
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

@@ -60,7 +60,8 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   config.active_job.queue_adapter     = :sidekiq
-  config.active_job.queue_name_prefix = "e_books_store_production"
+  config.active_job.queue_name_prefix = "ebooksstore-production.up.railway.app"
+  config.redis_url = 'redis://default:N3cVgqbWHEgPc2n0TYWl@containers-us-west-149.railway.app:7517'
 
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
@@ -69,7 +70,7 @@ Rails.application.configure do
     port: 587,
     domain: 'ebooksstore-production.up.railway.app',
     user_name: 'apikey',
-    password: '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',
+    password: Rails.application.credentials.dig(:production, :sendgrid, :api_key),
     authentication: :plain,
     enable_starttls_auto: true
   }
