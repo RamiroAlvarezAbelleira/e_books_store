@@ -216,6 +216,8 @@ GEM
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
+    redis (5.0.7)
+      redis-client (>= 0.9.0)
     redis-client (0.17.0)
       connection_pool
     regexp_parser (2.8.1)
@@ -321,6 +323,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 7.0.7, >= 7.0.7.2)
   ransack
+  redis
   selenium-webdriver
   sendgrid-ruby
   sidekiq
