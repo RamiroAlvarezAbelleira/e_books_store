@@ -6,9 +6,9 @@ class UpdateBookPricesJob
     books = publisher.books
     puts "entre al job #{publisher_id}"
     if type_of_update == 'increase'
-      books.each { |book| book.update(price: book.price * (1 + (percentage / 100))) }
+      books.each { |book| book.update(price: (book.price * (1 + (percentage / 100))).round) }
     elsif type_of_update == 'decrease'
-      books.each { |book| book.update(price: book.price * (1 - (percentage / 100))) }
+      books.each { |book| book.update(price: (book.price * (1 - (percentage / 100))).round) }
     end
     puts "despues del job"
 

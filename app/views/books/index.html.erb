@@ -16,7 +16,7 @@
                 <h5 class="fs-1 text-font text-capitalize"><%= book.title %></h5>
                 <p class="opacity-50 text-font1">By <%= book.author.full_name %></p>
             </div>
-            <div>
+            <div class="mw-fit-content">
                 <p  class="fs-4 mt-3 text-font1">$ <%= book.price %></p>
             </div>
         </div>
@@ -24,7 +24,7 @@
             <div>
                 <p class="m-0 opacity-50 text-font1">Published in <%= book.date_of_publication %></p>
             </div>
-            <div>
+            <div class="mw-fit-content">
                 <%= link_to 'Detail', book_path(book), class:"btn btn-outline-primary rounded-pill text-font1" %> 
             </div>
         </div>
