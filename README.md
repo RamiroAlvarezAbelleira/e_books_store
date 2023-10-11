@@ -1,6 +1,7 @@
 # eBooksStore
 
 eBookStore is a sample e-commerce platform designed for selling books. This application includes a user-friendly web interface for customers to browse and purchase books. It also provides a back office for administrators to manage products, authors, and publishers.
+[Link Text](https://ebooksstore-production.up.railway.app/)
 
 ## Prerequisites
 
@@ -46,6 +47,9 @@ To get started with eBookStore, follow these steps:
 9. Run this command on a new terminal tab to use Sidekiq. Ensure you have Redis (version 7.2.1) installed:
    ```bash
    bundle exec sidekiq
+   ```bash
+   redis-server --version
+   redis-server
 
 # Features
 
@@ -64,7 +68,8 @@ To get started with eBookStore, follow these steps:
 - Access the back office for managing books, authors, and publishers.
 - Admin-level access control using Pundit for managing data.
 - Applied filters with ransack for books, authors and publishers.
-- Automatically update book prices based on a percentage increase or decrease Filtered by publisher with background job processing powered by Sidekiq and Redis. (works on development)
+- Automatically update book prices based on a percentage increase or decrease Filtered by publisher with background job processing powered by Sidekiq and Redis. (works on development).
+- Access sidekiq's dashboard at /sidekiq only as admin.
 - Pagination system using will_paginate.
 - Utilizes Hotwire functionalities with Turbo Stream for real-time updates and error handling.
 
